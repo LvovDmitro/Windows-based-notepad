@@ -100,6 +100,7 @@ namespace Лабораторная_работа__1
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             tbChange = true;
+            TextWork.StatusAnalize(ref textBox1, ref toolStripStatusLabel1, ref toolStripStatusLabel3, ref toolStripStatusLabel5, ref toolStripStatusLabel7);
         }
 
         private void файлToolStripMenuItem_Click(object sender, EventArgs e)
@@ -204,6 +205,107 @@ namespace Лабораторная_работа__1
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Undo();
+        }
+
+        private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.SelectionLength > 0)
+            {
+                textBox1.Cut();
+            }
+        }
+
+        private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.SelectionLength > 0)
+            {
+                textBox1.Copy();
+            }
+        }
+
+        private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Paste();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (textBox1.SelectionLength > 0)
+            {
+                textBox1.SelectedText = "";
+            }
+        }
+
+        private void перейтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoToForm gotoform = new GoToForm();
+            gotoform.Owner = this;
+            gotoform.numericUpDown1.Minimum = 0 ;
+            gotoform.numericUpDown1.Maximum = textBox1.Lines.Count();
+            gotoform.ShowDialog();
+        }
+
+        private void шрифтToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = textBox1.Font;
+            DialogResult = fontDialog1.ShowDialog();
+            if (DialogResult == DialogResult.OK)
+            {
+                textBox1.Font = fontDialog1.Font;
+            }
+        }
+
+        private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (FormatTransfer == CheckState.Checked)
+            {
+                textBox1.WordWrap = true;
+                textBox1.ScrollBars = ScrollBars.Vertical;
+                toolStripStatusLabel1.Visible = false;
+                toolStripStatusLabel2.Visible = false;
+            }
+            else
+            {
+                textBox1.WordWrap = false;
+                textBox1.ScrollBars = ScrollBars.Both;
+                toolStripStatusLabel1.Visible = true;
+                toolStripStatusLabel2.Visible = true;
+            }
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
+        }
+
+        private void строкаСостоянияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (statusStripVisible == CheckState.Checked)
+            {
+                Properties.Settings.Default.statusStripVisible = true;
+            }
+            else
+            {
+                Properties.Settings.Default.statusStripVisible = false;
+            }
+        }
+
+        private void масштабToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void найтиИЗаменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchForm findText = new SearchForm();
+            findText.Owner = this;
+            findText.Show();
         }
     }
 }

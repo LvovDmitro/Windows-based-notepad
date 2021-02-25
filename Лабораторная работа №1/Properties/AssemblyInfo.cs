@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("Лабораторная работа №1")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("")]
+[assembly: AssemblyDescription("Данное приложение практически в точности копирует стандартный блокнот Windows. Все функции являются базовыми, интерфейс стандартным и достаточно приятным. Узнать о свойствах, структуре этого приложения, а также познакомиться с другими работами автора можно здесь: https://vk.com/vozdemon99")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Лабораторная работа №1")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("NoteBook")]
+[assembly: AssemblyCopyright("Copyright Lvov Industries ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

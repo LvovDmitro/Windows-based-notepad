@@ -16,7 +16,15 @@ namespace Лабораторная_работа__1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            String[] arguments = Environment.GetCommandLineArgs();
+            if (arguments.Length >= 2)
+            {
+                Application.Run(new Form1(arguments[1]));
+            }
+            else
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }

@@ -16,5 +16,10 @@ namespace Лабораторная_работа__1
         {
             InitializeComponent();
         }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

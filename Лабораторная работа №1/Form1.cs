@@ -19,6 +19,8 @@ namespace Лабораторная_работа__1
         }
         bool tbChange = false;
         string docPath = "";
+        private CheckState statusStripVisible;
+        private CheckState FormatTransfer;
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
@@ -31,13 +33,13 @@ namespace Лабораторная_работа__1
             this.Height = Properties.Settings.Default.formHeight;
             textBox1.Font = Properties.Settings.Default.textFont;
             if (Properties.Settings.Default.statusStripVisible == true)
-            { statusStrip1.CheckState = CheckState.Checked; }
+            {statusStripVisible = CheckState.Checked; }
             else
-            { statusStrip1.CheckState = CheckState.Unchecked; }
+            { statusStripVisible = CheckState.Unchecked; }
             if (Properties.Settings.Default.textTransfer == true)
-            {.CheckState = CheckState.Checked; }
+            { FormatTransfer = CheckState.Checked; }
             else
-            { mFormatTransfer.CheckState = CheckState.Unchecked; }
+            { FormatTransfer = CheckState.Unchecked; }
         }
         private void Form1_FormClosing(object sender, EventArgs e)
         {

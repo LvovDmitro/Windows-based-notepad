@@ -42,31 +42,23 @@
             this.копироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вставитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.найтиИЗаменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перейтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фОрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переносПоСловамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.шрифтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.строкаСостоянияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.найтиИЗаменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -201,6 +193,13 @@
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
+            // найтиИЗаменитьToolStripMenuItem
+            // 
+            this.найтиИЗаменитьToolStripMenuItem.Name = "найтиИЗаменитьToolStripMenuItem";
+            this.найтиИЗаменитьToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
+            this.найтиИЗаменитьToolStripMenuItem.Text = "Найти и заменить...";
+            this.найтиИЗаменитьToolStripMenuItem.Click += new System.EventHandler(this.найтиИЗаменитьToolStripMenuItem_Click);
+            // 
             // перейтиToolStripMenuItem
             // 
             this.перейтиToolStripMenuItem.Name = "перейтиToolStripMenuItem";
@@ -213,7 +212,8 @@
             // 
             this.фОрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.переносПоСловамToolStripMenuItem,
-            this.шрифтToolStripMenuItem});
+            this.шрифтToolStripMenuItem,
+            this.цветToolStripMenuItem});
             this.фОрToolStripMenuItem.Name = "фОрToolStripMenuItem";
             this.фОрToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.фОрToolStripMenuItem.Text = "Формат";
@@ -224,7 +224,6 @@
             this.переносПоСловамToolStripMenuItem.Name = "переносПоСловамToolStripMenuItem";
             this.переносПоСловамToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
             this.переносПоСловамToolStripMenuItem.Text = "Перенос по словам";
-            this.переносПоСловамToolStripMenuItem.Click += new System.EventHandler(this.переносПоСловамToolStripMenuItem_Click);
             // 
             // шрифтToolStripMenuItem
             // 
@@ -232,6 +231,13 @@
             this.шрифтToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
             this.шрифтToolStripMenuItem.Text = "Шрифт...";
             this.шрифтToolStripMenuItem.Click += new System.EventHandler(this.шрифтToolStripMenuItem_Click);
+            // 
+            // цветToolStripMenuItem
+            // 
+            this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
+            this.цветToolStripMenuItem.Text = "Цвет";
+            this.цветToolStripMenuItem.Click += new System.EventHandler(this.цветToolStripMenuItem_Click);
             // 
             // видToolStripMenuItem
             // 
@@ -247,7 +253,7 @@
             this.строкаСостоянияToolStripMenuItem.CheckOnClick = true;
             this.строкаСостоянияToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.строкаСостоянияToolStripMenuItem.Name = "строкаСостоянияToolStripMenuItem";
-            this.строкаСостоянияToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.строкаСостоянияToolStripMenuItem.Size = new System.Drawing.Size(260, 34);
             this.строкаСостоянияToolStripMenuItem.Text = "Строка состояния";
             this.строкаСостоянияToolStripMenuItem.Click += new System.EventHandler(this.строкаСостоянияToolStripMenuItem_Click);
             // 
@@ -262,76 +268,9 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel4,
-            this.toolStripStatusLabel5,
-            this.toolStripStatusLabel6,
-            this.toolStripStatusLabel7,
-            this.toolStripStatusLabel8});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 418);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1034, 32);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(158, 25);
-            this.toolStripStatusLabel1.Text = "Количество строк";
-            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(22, 25);
-            this.toolStripStatusLabel2.Text = "0";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(150, 25);
-            this.toolStripStatusLabel3.Text = "Количество слов";
-            // 
-            // toolStripStatusLabel4
-            // 
-            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(22, 25);
-            this.toolStripStatusLabel4.Text = "0";
-            // 
-            // toolStripStatusLabel5
-            // 
-            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(207, 25);
-            this.toolStripStatusLabel5.Text = "Символов с пробелами";
-            // 
-            // toolStripStatusLabel6
-            // 
-            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(22, 25);
-            this.toolStripStatusLabel6.Text = "0";
-            // 
-            // toolStripStatusLabel7
-            // 
-            this.toolStripStatusLabel7.Name = "toolStripStatusLabel7";
-            this.toolStripStatusLabel7.Size = new System.Drawing.Size(215, 25);
-            this.toolStripStatusLabel7.Text = "Символов без пробелов";
-            // 
-            // toolStripStatusLabel8
-            // 
-            this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
-            this.toolStripStatusLabel8.Size = new System.Drawing.Size(22, 25);
-            this.toolStripStatusLabel8.Text = "0";
             // 
             // textBox1
             // 
@@ -340,9 +279,8 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1034, 385);
+            this.textBox1.Size = new System.Drawing.Size(1034, 417);
             this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // printDialog1
             // 
@@ -353,20 +291,13 @@
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
             // 
-            // найтиИЗаменитьToolStripMenuItem
-            // 
-            this.найтиИЗаменитьToolStripMenuItem.Name = "найтиИЗаменитьToolStripMenuItem";
-            this.найтиИЗаменитьToolStripMenuItem.Size = new System.Drawing.Size(274, 34);
-            this.найтиИЗаменитьToolStripMenuItem.Text = "Найти и заменить...";
-            this.найтиИЗаменитьToolStripMenuItem.Click += new System.EventHandler(this.найтиИЗаменитьToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1034, 450);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -374,8 +305,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,21 +334,14 @@
         private System.Windows.Forms.ToolStripMenuItem шрифтToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem строкаСостоянияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
         public System.Windows.Forms.TextBox textBox1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ToolStripMenuItem найтиИЗаменитьToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
     }
 }
 

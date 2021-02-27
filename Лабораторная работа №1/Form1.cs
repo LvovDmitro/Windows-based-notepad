@@ -16,11 +16,20 @@ namespace Лабораторная_работа__1
         public Form1()
         {
             InitializeComponent();
+            textBox1.Click += печатьToolStripMenuItem_Click;
+            textBox1.Click += шрифтToolStripMenuItem_Click;
+            textBox1.Click += цветToolStripMenuItem_Click;
+            fontDialog1.ShowColor = true;
+            colorDialog1.FullOpen = true;
+            // установка начального цвета для colorDialog
+            colorDialog1.Color = this.BackColor;
+           
             this.Text = Properties.Settings.Default.newDocName + " - " + Properties.Settings.Default.programmName;
         }
         public Form1(string fileName) // Открытие программы документом
         {
             InitializeComponent();
+            
             if (!string.IsNullOrEmpty(fileName) && File.Exists(fileName))
             {
                 try
@@ -34,12 +43,15 @@ namespace Лабораторная_работа__1
                     tbChange = false;
                     this.Text = Path.GetFileName(fileName) + " — " + programmName;
                     textBox1.Select(0, 0);
+                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+            
+            
         }
         bool tbChange = false;
         string docPath = "";
@@ -97,11 +109,7 @@ namespace Лабораторная_работа__1
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            tbChange = true;
-            TextWork.StatusAnalize(ref textBox1, ref toolStripStatusLabel1, ref toolStripStatusLabel3, ref toolStripStatusLabel5, ref toolStripStatusLabel7);
-        }
+       
 
         private void файлToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -252,31 +260,15 @@ namespace Лабораторная_работа__1
 
         private void шрифтToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fontDialog1.Font = textBox1.Font;
-            DialogResult = fontDialog1.ShowDialog();
-            if (DialogResult == DialogResult.OK)
-            {
-                textBox1.Font = fontDialog1.Font;
-            }
+            if (fontDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            // установка шрифта
+            textBox1.Font = fontDialog1.Font;
+            // установка цвета шрифта
+            textBox1.ForeColor = fontDialog1.Color;
         }
 
-        private void переносПоСловамToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (FormatTransfer == CheckState.Checked)
-            {
-                textBox1.WordWrap = true;
-                textBox1.ScrollBars = ScrollBars.Vertical;
-                toolStripStatusLabel1.Visible = false;
-                toolStripStatusLabel2.Visible = false;
-            }
-            else
-            {
-                textBox1.WordWrap = false;
-                textBox1.ScrollBars = ScrollBars.Both;
-                toolStripStatusLabel1.Visible = true;
-                toolStripStatusLabel2.Visible = true;
-            }
-        }
+       
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -306,6 +298,14 @@ namespace Лабораторная_работа__1
             SearchForm findText = new SearchForm();
             findText.Owner = this;
             findText.Show();
+        }
+
+        private void цветToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            // установка цвета формы
+            textBox1.BackColor = colorDialog1.Color;
         }
     }
 }
